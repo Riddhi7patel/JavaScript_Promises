@@ -15,10 +15,30 @@ function getList() {
   });
 }
 
-// TODO: Handle the resolved or rejected states of the promise
+let errorParagraph = document.querySelector("#error");
+let visualList = document.querySelector("#list");
+
+
+getList()
 
 // TODO: If the promise resolves with the list of hobbits
 // Render the list of hobbits as list items within the unordered list with id="list" (check the index.html file)
 
+
+
+.then((hobbits) => {
+  hobbits.forEach((hobbitName) => {
+    const hobbitLi = documents.creatElement("li");
+    li.textContent = hobbitName;
+    visualList.appendChild(hobbitLi);
+  });
+})
+
 // TODO: If the promise rejects with the failure object
 // Display the failure message in the paragraph element with id="error" (check index.html file)
+
+.catch((rejectedValue) => {
+  console.log(rejectedValue);
+  errorParagraph.textContent = rejectedValue.message;
+});
+
